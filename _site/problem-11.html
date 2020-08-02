@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en" ><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Jekyll v4.0.0" /><meta property="og:title" content="Largest Product on Grid" /><meta name="author" content="Ayan Bag" /><meta property="og:locale" content="en_US" /><meta name="description" content="Problem Statement" /><meta property="og:description" content="Problem Statement" /><link rel="canonical" href="http://localhost:4000/problem-11" /><meta property="og:url" content="http://localhost:4000/problem-11" /><meta property="og:site_name" content="Euler Decode" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2020-06-27T00:00:00+05:30" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Largest Product on Grid" /><meta name="twitter:site" content="@" /><meta name="twitter:creator" content="@Ayan Bag" /> <script type="application/ld+json"> {"headline":"Largest Product on Grid","dateModified":"2020-06-27T00:00:00+05:30","datePublished":"2020-06-27T00:00:00+05:30","author":{"@type":"Person","name":"Ayan Bag"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/problem-11"},"description":"Problem Statement","url":"http://localhost:4000/problem-11","@type":"BlogPosting","@context":"https://schema.org"}</script><title> Largest Product on Grid - Euler Decode</title><link rel="shortcut icon" href="/favicon.png"><link rel="alternate" type="application/atom+xml" title="Euler Decode" href="/atom.xml"><link rel="alternate" type="application/json" title="Euler Decode" href="http://localhost:4000/feed.json" /><link rel="sitemap" type="application/xml" title="sitemap" href="/sitemap.xml" /> <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><style> *,:after,:before{box-sizing:border-box;background-color:inherit;color:inherit;margin:0;padding:0}body{font-family:system-ui, sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5;font-size:1rem;color:#16171a}nav ul{border-right:1px solid #edf2f7}a{color:#000;text-decoration-skip-ink:auto;text-decoration:underline}pre{margin:.5rem 0;padding:.5rem}.post p{margin:.5rem 0}.post h1,.post h2,.post h3,.post h4{margin:1rem 0}.post h2:first-child,.project h2:first-child,.photo h2:first-child{margin-top:0}.post button{background-color:#4CAF50;border:none;color:white;padding:15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;margin:4px 2px;cursor:pointer}.meta{margin:2rem 0}code,pre{background:#ecedee}code{padding:.1rem}pre code{border:none}pre{padding:1rem;overflow-x:auto}img{max-width:100%}hr{background:#000;height:1px;border:0}header{flex-basis:10rem;flex-grow:1;position:relative}header a{text-decoration:none}header li{margin-bottom:.2rem;text-align:right;margin-right:2rem}header a.active{font-weight:bold}header,section{padding:1rem}blockquote{font-style:italic;border-left:5px solid #ececec;padding-left:1rem}h1,h2,h3,h4,h5{line-height:1;margin:1rem 0;font-weight:600}section h1:first-child{margin-top:0}strong,b{font-weight:bold}.photos ul{list-style:none}.photos li{margin-bottom:1.5rem}.photo picture,.project picture{margin-bottom:0.5rem}.posts ul,header ul{list-style:none}.posts li{align-items:center;display:flex;justify-content:space-between;margin-bottom:.5rem}.posts li a,.posts li div,.projects li a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none}.posts li time,.projects li time{padding-left:1rem;white-space:nowrap;font-variant-numeric:tabular-nums}main{display:flex;flex-wrap:wrap;max-width:60rem;margin:2rem auto;padding:1rem}@media screen and (max-width: 45rem){header li{display:inline;margin-right:1rem}.logo{padding-bottom:1rem}header ul{border-bottom:1px solid #edf2f7;padding-bottom:2rem}nav ul{border-right:0px}.photos ul{margin-top:0.5rem}}section{flex-basis:0;flex-grow:999;min-width:70%;display:flex;flex-direction:column}figcaption{font-size:smaller}sub{vertical-align:sub;font-size:medium}sup{vertical-align:super;font-size:medium}</style></head><body><main role="main"><header role="banner"> <!--<h1 class="logo">Euler Decode</h1>--><nav role="navigation"><ul><li><a href="/" >Decode</a></li><li><a href="/search" >Search</a></li><li><a href="/about" >About</a></li></ul></nav></header><section class="post"><h2>Problem 11 : Largest Product on Grid</h2><h3 id="problem-statement">Problem Statement</h3><p>In the 20×20 grid below, four numbers along a diagonal line have been marked in red.</p><p>08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 <br /> 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 <br /> 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 <br /> 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91 <br /> 22 31 16 71 51 67 63 89 41 92 36 54 22 40 40 28 66 33 13 80 <br /> 24 47 32 60 99 03 45 02 44 75 33 53 78 36 84 20 35 17 12 50 <br /> 32 98 81 28 64 23 67 10 26 38 40 67 59 54 70 66 18 38 64 70 <br /> 67 26 20 68 02 62 12 20 95 63 94 39 63 08 40 91 66 49 94 21 <br /> 24 55 58 05 66 73 99 26 97 17 78 78 96 83 14 88 34 89 63 72 <br /> 21 36 23 09 75 00 76 44 20 45 35 14 00 61 33 97 34 31 33 95 <br /> 78 17 53 28 22 75 31 67 15 94 03 80 04 62 16 14 09 53 56 92 <br /> 16 39 05 42 96 35 31 47 55 58 88 24 00 17 54 24 36 29 85 57 <br /> 86 56 00 48 35 71 89 07 05 44 44 37 44 60 21 58 51 54 17 58 <br /> 19 80 81 68 05 94 47 69 28 73 92 13 86 52 17 77 04 89 55 40 <br /> 04 52 08 83 97 35 99 16 07 97 57 32 16 26 26 79 33 27 98 66 <br /> 88 36 68 87 57 62 20 72 03 46 33 67 46 55 12 32 63 93 53 69 <br /> 04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36 <br /> 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16 <br /> 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 <br /> 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48 <br /></p><p>The product of these numbers is 26 × 63 × 78 × 14 = 1788696.</p><p>What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?</p><h3 id="solution">Solution</h3><pre><code>arr = [
+    [8, 2, 22, 97, 38, 15, 00, 40, 00, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
+    [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 00],
+    [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
+    [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
+    [22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
+    [24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50],
+    [32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70],
+    [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 21],
+    [24, 55, 58, 5, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72],
+    [21, 36, 23, 9, 75, 00, 76, 44, 20, 45, 35, 14, 00, 61, 33, 97, 34, 31, 33, 95],
+    [78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 3, 80, 4, 62, 16, 14, 9, 53, 56, 92],
+    [16, 39, 5, 42, 96, 35, 31, 47, 55, 58, 88, 24, 00, 17, 54, 24, 36, 29, 85, 57],
+    [86, 56, 00, 48, 35, 71, 89, 7, 5, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58],
+    [19, 80, 81, 68, 5, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 4, 89, 55, 40],
+    [4, 52, 8, 83, 97, 35, 99, 16, 7, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66],
+    [88, 36, 68, 87, 57, 62, 20, 72, 3, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69],
+    [4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
+    [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
+    [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
+    [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
+];
+
+def biggest_product():
+    grid = arr
+    product = 0
+    product_temp = 0
+
+    col = 20
+    row = 20
+    for i in range(row):
+        for j in range(col):
+            if i + 3 &lt; 20:
+                product_temp = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j]
+
+                if product &lt; product_temp:
+                    product = product_temp
+
+            if j + 3 &lt; 20:
+                product_temp = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]
+
+                if product &lt; product_temp:
+                    product = product_temp
+
+            if i + 3 &lt; 20 and j + 3 &lt; 20:
+                product_temp = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]
+
+                if product &lt; product_temp:
+                    product = product_temp
+
+    for i in range(20, -1, -1):
+        for j in range(20):
+            if i + 3 &lt; 20 and j - 3 &gt;= 0:
+                product_temp = grid[i][j] * grid[i + 1][j - 1] * grid[i + 2][j - 2] * grid[i + 3][j - 3]
+
+                if product &lt; product_temp:
+                    product = product_temp
+    return product
+
+print(biggest_product())
+</code></pre><p><strong>Output</strong></p><pre><code>70600674
+</code></pre><span class="meta"><time datetime="2020-06-27T00:00:00+05:30">June 27, 2020</time></span> <!--<span class="meta"><time datetime="2020-06-27T00:00:00+05:30">June 27, 2020</time> &middot; <a class="post" href="/tag/easy">easy</a></span> --></section></main><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.6/lib/darkmode-js.min.js"></script> <script> new Darkmode({label: '🌓'}).showWidget(); </script></body></html>
