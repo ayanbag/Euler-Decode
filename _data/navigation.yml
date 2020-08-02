@@ -1,9 +1,12 @@
 links:
-- title: Decode 
+- title: Decode 👨‍💻
   url: /
   
-- title: Search 
+- title: Search 🔍
   url: /search
 
-- title: About 
+- title: About 📜
   url: /about 
+
+- title: Github 😺
+  url: https://github.com/ayanbag/Euler-Decode
