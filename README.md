@@ -1,6 +1,6 @@
 # Euler Decode
 
-This repository hosts the website as well as the content of the Euler Decode, published at [https://code-arch.web.app](https://code-arch.web.app).
+This repository hosts the website as well as the content of the Euler Decode, published at [https://eulerdecode.ayanbag.com](https://eulerdecode.ayanbag.com). All content can be found in **_post** folder.
 
 
 ## Contributions
