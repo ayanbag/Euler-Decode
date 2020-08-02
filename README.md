@@ -7,6 +7,6 @@ This repository hosts the website as well as the content of the Euler Decode, pu
 
 We'd also like to collaborate on the tutorial with other people.
 
-Something's wrong? A topic is missing? Explain it to people, add as PR 👏  
+Something's wrong? Mistake it in Solution? Explain it to people or Correct it for people, add as PR 👏  
 
 
