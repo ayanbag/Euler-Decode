@@ -3,7 +3,8 @@ layout: page
 title: About This Project
 ---
 
-The goal of this project **Euler Decode** is to increase our own (and the readers) knowledge and get YOU interested in computer science while having fun at the same time. I know that this is a very difficult goal but I hope you do enjoy. The focus is mainly on solving [Project Euler's](https://projecteuler.net/) challenges out there. 
+The goal of this project **Euler Decode** is to help peoples in solving mathematical challenges, mainly focuced on solving [Project Euler's](https://projecteuler.net/) challenges, with my way of approach to this challenges.
+
 
 
 ### Why do you post the solutions?
@@ -12,7 +13,7 @@ This is an often asked question, since some feel that it is cheating to read sol
 
 To be honest you can find the solutions for most of the problems online already, some of them without an explanation and some of them with. So if you want to cheat, you can easily do so. We hope that you use the solutions as an inspiration to improve your problem solving skills once you have conquered the problems yourself.
 
-### Bug or typo? Great idea? 
+### Bug or typo or mistake in code? 
 
 Please write at our [github](https://github.com/ayanbag/Euler-Decode). I want to make this open-source project available for people all around the world.
 

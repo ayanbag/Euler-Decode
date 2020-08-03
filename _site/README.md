@@ -1,5 +1,8 @@
 # Euler Decode
 
+
+The goal of this project **Euler Decode** is to help peoples in solving mathematical challenges, mainly focuced on solving [Project Euler's](https://projecteuler.net/) challenges, with my way of approach to this challenges.
+
 This repository hosts the website as well as the content of the Euler Decode, published at [https://code-arch.web.app](https://code-arch.web.app).
 
 
