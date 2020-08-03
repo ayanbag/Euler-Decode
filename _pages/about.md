@@ -5,7 +5,7 @@ title: About This Project
 
 The goal of this project **Euler Decode** is to help peoples in solving mathematical challenges, mainly focuced on solving [Project Euler's](https://projecteuler.net/) challenges, with my way of approach to this challenges.
 
-
+**Programming Language** used to solve the challenges : **Python**
 
 ### Why do you post the solutions?
 
