@@ -2,6 +2,97 @@
   
     {
 
+      "title"    : "XOR decryption",
+      "url"      : "/problem-59",
+      "category" : "",
+      "tags"     : "easy",
+      "date"     : "2020-08-10 00:00:00 +0530",
+      "discription" : "",
+      "series"    : "",
+      "edition"   : "",
+      "probid"    :  "59"
+    } ,
+  
+    {
+
+      "title"    : "Spiral primes",
+      "url"      : "/problem-58",
+      "category" : "",
+      "tags"     : "easy",
+      "date"     : "2020-08-10 00:00:00 +0530",
+      "discription" : "",
+      "series"    : "",
+      "edition"   : "",
+      "probid"    :  "58"
+    } ,
+  
+    {
+
+      "title"    : "Square root convergents",
+      "url"      : "/problem-57",
+      "category" : "",
+      "tags"     : "easy",
+      "date"     : "2020-08-10 00:00:00 +0530",
+      "discription" : "",
+      "series"    : "",
+      "edition"   : "",
+      "probid"    :  "57"
+    } ,
+  
+    {
+
+      "title"    : "Powerful digit sum",
+      "url"      : "/problem-56",
+      "category" : "",
+      "tags"     : "easy",
+      "date"     : "2020-08-10 00:00:00 +0530",
+      "discription" : "",
+      "series"    : "",
+      "edition"   : "",
+      "probid"    :  "56"
+    } ,
+  
+    {
+
+      "title"    : "Lychrel numbers",
+      "url"      : "/problem-55",
+      "category" : "",
+      "tags"     : "easy",
+      "date"     : "2020-08-10 00:00:00 +0530",
+      "discription" : "",
+      "series"    : "",
+      "edition"   : "",
+      "probid"    :  "55"
+    } ,
+  
+    {
+
+      "title"    : "Combinatoric selections",
+      "url"      : "/problem-53",
+      "category" : "",
+      "tags"     : "easy",
+      "date"     : "2020-08-10 00:00:00 +0530",
+      "discription" : "",
+      "series"    : "",
+      "edition"   : "",
+      "probid"    :  "53"
+    } ,
+  
+    {
+
+      "title"    : "Permuted multiples",
+      "url"      : "/problem-52",
+      "category" : "",
+      "tags"     : "easy",
+      "date"     : "2020-08-10 00:00:00 +0530",
+      "discription" : "",
+      "series"    : "",
+      "edition"   : "",
+      "probid"    :  "52"
+    } ,
+  
+    {
+
       "title"    : "Consecutive prime sum",
       "url"      : "/problem-50",
       "category" : "",

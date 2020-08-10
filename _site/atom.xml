@@ -4,13 +4,338 @@
  <title>Euler Decode</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-08-03T10:18:46+05:30</updated>
+ <updated>2020-08-10T10:36:05+05:30</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Ayan Bag</name>
    <email>info@ayanbag.com</email>
  </author>
 
+ 
+ <entry>
+   <title>XOR decryption</title>
+   <link href="http://localhost:4000/problem-59"/>
+   <updated>2020-08-10T00:00:00+05:30</updated>
+   <id>http://localhost:4000/problem-59</id>
+   <content type="html">&lt;h3 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h3&gt;
+
+&lt;p&gt;Each character on a computer is assigned a unique code and the preferred standard is ASCII (American Standard Code for Information Interchange). For example, uppercase A = 65, asterisk (*) = 42, and lowercase k = 107.&lt;/p&gt;
+
+&lt;p&gt;A modern encryption method is to take a text file, convert the bytes to ASCII, then XOR each byte with a given value, taken from a secret key. The advantage with the XOR function is that using the same encryption key on the cipher text, restores the plain text; for example, 65 XOR 42 = 107, then 107 XOR 42 = 65.&lt;/p&gt;
+
+&lt;p&gt;For unbreakable encryption, the key is the same length as the plain text message, and the key is made up of random bytes. The user would keep the encrypted message and the encryption key in different locations, and without both “halves”, it is impossible to decrypt the message.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, this method is impractical for most users, so the modified method is to use a password as a key. If the password is shorter than the message, which is likely, the key is repeated cyclically throughout the message. The balance for this method is using a sufficiently long password key for security, but short enough to be memorable.&lt;/p&gt;
+
+&lt;p&gt;Your task has been made easy, as the encryption key consists of three lower case characters. Using &lt;a href=&quot;https://projecteuler.net/project/resources/p059_cipher.txt&quot;&gt;p059_cipher.txt&lt;/a&gt;, a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text.&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;from collections import Counter
+
+f = open('cipher.txt')
+encoded_text = f.read().strip().split(',')
+encoded_text = [int(x) for x in encoded_text]
+
+key = [Counter(encoded_text[i::3]).most_common(1)[0][0] ^ 32 for i in range(3)]
+print (sum(x^y for x, y in zip(encoded_text, key*(len(encoded_text)//3+1))))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;129448
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Spiral primes</title>
+   <link href="http://localhost:4000/problem-58"/>
+   <updated>2020-08-10T00:00:00+05:30</updated>
+   <id>http://localhost:4000/problem-58</id>
+   <content type="html">&lt;h3 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h3&gt;
+
+&lt;p&gt;Starting with 1 and spiralling anticlockwise in the following way, a square spiral with side length 7 is formed.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;37&lt;/strong&gt; 36 35 34 33 32 &lt;strong&gt;31&lt;/strong&gt; &lt;br /&gt;
+38 &lt;strong&gt;17&lt;/strong&gt; 16 15 14 &lt;strong&gt;13&lt;/strong&gt; 30 &lt;br /&gt;
+39 18  &lt;strong&gt;5&lt;/strong&gt;  4  &lt;strong&gt;3&lt;/strong&gt; 12 29 &lt;br /&gt;
+40 19  6  1  2 11 28 &lt;br /&gt;
+41 20  &lt;strong&gt;7&lt;/strong&gt;  8  9 10 27 &lt;br /&gt;
+42 21 22 23 24 25 26 &lt;br /&gt;
+&lt;strong&gt;43&lt;/strong&gt; 44 45 46 47 48 49 &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is interesting to note that the odd squares lie along the bottom right diagonal, but what is more interesting is that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of 8/13 ≈ 62%.&lt;/p&gt;
+
+&lt;p&gt;If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed. If this process is continued, what is the side length of the square spiral for which the ratio of primes along both diagonals first falls below 10%?&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;def is_prime(n):
+    for i in range(3, int(n**0.5)+1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+
+i = 0
+
+gap = 1
+ratio = 1
+primes = []
+all_numbers = [1]
+
+while ratio &amp;gt; 0.1:
+    for j in range(4):
+        i += gap
+        present_number = 2*i + 1
+        all_numbers.append(present_number)
+        if is_prime(present_number):
+            primes.append(2*i + 1)
+    ratio = float(len(primes))/len(all_numbers)
+    gap += 1
+
+print (int((2*i+1)**0.5))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;26241
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Square root convergents</title>
+   <link href="http://localhost:4000/problem-57"/>
+   <updated>2020-08-10T00:00:00+05:30</updated>
+   <id>http://localhost:4000/problem-57</id>
+   <content type="html">&lt;h3 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h3&gt;
+
+&lt;p&gt;It is possible to show that the square root of two can be expressed as an infinite continued fraction.&lt;/p&gt;
+
+\[\sqrt 2 =1+ \frac 1 {2+ \frac 1 {2 +\frac 1 {2+ \dots}}}\]
+
+&lt;p&gt;By expanding this for the first four iterations, we get:&lt;/p&gt;
+
+\[1 + \frac 1 2 = \frac  32 = 1.5 \\
+1 + \frac 1 {2 + \frac 1 2} = \frac 7 5 = 1.4 \\
+1 + \frac 1 {2 + \frac 1 {2+\frac 1 2}} = \frac {17}{12} = 1.41666 \dots \\
+1 + \frac 1 {2 + \frac 1 {2+\frac 1 {2+\frac 1 2}}} = \frac {41}{29} = 1.41379 \dots \\\]
+
+&lt;p&gt;The next three expansions are $\frac {99}{70}$, $\frac {239}{169}$ and $\frac {577}{408}$ but the eighth expansion, $\frac {1393}{985}$, is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.&lt;/p&gt;
+
+&lt;p&gt;In the first one-thousand expansions, how many fractions contain a numerator with more digits than the denominator?&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;import math as mt
+
+n=3
+d=2
+count =0
+
+for i in range(2,1001):
+    n,d = 2*d+n,n+d
+    if int(mt.log10(n)) &amp;gt; int(mt.log10(d)): count += 1
+
+print(count)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;153
+&lt;/code&gt;&lt;/pre&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Powerful digit sum</title>
+   <link href="http://localhost:4000/problem-56"/>
+   <updated>2020-08-10T00:00:00+05:30</updated>
+   <id>http://localhost:4000/problem-56</id>
+   <content type="html">&lt;h3 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h3&gt;
+
+&lt;p&gt;A googol (10&lt;sup&gt;100&lt;/sup&gt;) is a massive number: one followed by one-hundred zeros; 100&lt;sup&gt;100&lt;/sup&gt; is almost unimaginably large: one followed by two-hundred zeros. Despite their size, the sum of the digits in each number is only 1.&lt;/p&gt;
+
+&lt;p&gt;Considering natural numbers of the form, a&lt;sup&gt;b&lt;/sup&gt;, where a, b &amp;lt; 100, what is the maximum digital sum?&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;digi_sum=[]
+for a in range(1,101):
+    for b in range(1,101):
+        add=[]
+        val = list(str(a**b))
+        for i in val:
+            add.append(int(i))
+        digi_sum.append(sum(add))
+
+res = sorted(digi_sum)
+print(res[-1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;972
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Lychrel numbers</title>
+   <link href="http://localhost:4000/problem-55"/>
+   <updated>2020-08-10T00:00:00+05:30</updated>
+   <id>http://localhost:4000/problem-55</id>
+   <content type="html">&lt;h3 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h3&gt;
+
+&lt;p&gt;If we take 47, reverse and add, 47 + 74 = 121, which is palindromic.&lt;/p&gt;
+
+&lt;p&gt;Not all numbers produce palindromes so quickly. For example,&lt;/p&gt;
+
+&lt;p&gt;349 + 943 = 1292, &lt;br /&gt;
+1292 + 2921 = 4213 &lt;br /&gt;
+4213 + 3124 = 7337 &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;That is, 349 took three iterations to arrive at a palindrome. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Although no one has proved it yet, it is thought that some numbers, like 196, never produce a palindrome. A number that never forms a palindrome through the reverse and add process is called a Lychrel number. Due to the theoretical nature of these numbers, and for the purpose of this problem, we shall assume that a number is Lychrel until proven otherwise. In addition you are given that for every number below ten-thousand, it will either (i) become a palindrome in less than fifty iterations, or, (ii) no one, with all the computing power that exists, has managed so far to map it to a palindrome. In fact, 10677 is the first number to be shown to require over fifty iterations before producing a palindrome: 4668731596684224866951378664 (53 iterations, 28-digits).&lt;/p&gt;
+
+&lt;p&gt;Surprisingly, there are palindromic numbers that are themselves Lychrel numbers; the first example is 4994.&lt;/p&gt;
+
+&lt;p&gt;How many Lychrel numbers are there below ten-thousand?&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;def palin(n):
+    return str(n) == str(n)[::-1]
+lychrel = []
+for num in range(10,10001):
+    iteration = 1
+    st_num = str(num)
+    temp = int(st_num[::-1]) + num
+    if palin(temp):
+            continue
+    else:
+        while iteration&amp;lt;=50:
+            temp1=str(temp)
+            temp2=temp1[::-1]
+            temp3 = int(temp1)+int(temp2)
+            if palin(temp3):
+                break
+            else:
+                temp = temp3
+                iteration = iteration+1
+        if iteration &amp;gt;50:
+            lychrel.append(temp3)
+
+
+print(len(lychrel))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;249
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Combinatoric selections</title>
+   <link href="http://localhost:4000/problem-53"/>
+   <updated>2020-08-10T00:00:00+05:30</updated>
+   <id>http://localhost:4000/problem-53</id>
+   <content type="html">&lt;h3 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h3&gt;
+
+&lt;p&gt;There are exactly ten ways of selecting three from five, 12345:&lt;/p&gt;
+
+&lt;p&gt;123, 124, 125, 134, 135, 145, 234, 235, 245, and 345&lt;/p&gt;
+
+&lt;p&gt;In combinatorics, we use the notation,&lt;/p&gt;
+
+\[\displaystyle \binom 5 3 = 10\]
+
+&lt;p&gt;In general,&lt;/p&gt;
+
+\[\displaystyle \binom n r = \dfrac{n!}{r!(n-r)!}\]
+
+&lt;p&gt;where $r \le n$ , $n! = n \times (n-1) \times … \times 3 \times 2 \times 1$ and $0! = 1$&lt;/p&gt;
+
+&lt;p&gt;It is not until n=23, that a value exceeds one-million:&lt;/p&gt;
+
+\[\displaystyle \binom {23} {10} = 1144066\]
+
+&lt;p&gt;How many, not necessarily distinct, values of $\displaystyle \binom n r$ for $1 \le n \le 100$ are greater than one-million?&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;dic=[1]
+
+for i in range(1,101):
+    val =dic[-1]*i
+    dic.append(val)
+
+
+def choose(n,r):
+    sol = dic[n]//(dic[n-r]*dic[r])
+    return sol
+
+def func(maxi, valu): 
+    count = 0
+    for i in range(2,maxi+1):
+        for j in range(1,i+1):
+            val = choose(i,j)
+            if  val&amp;gt;valu:
+                count+=1         
+    return count
+
+
+print(func(100, 10**6))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Ouputs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;4075
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Permuted multiples</title>
+   <link href="http://localhost:4000/problem-52"/>
+   <updated>2020-08-10T00:00:00+05:30</updated>
+   <id>http://localhost:4000/problem-52</id>
+   <content type="html">&lt;h3 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h3&gt;
+
+&lt;p&gt;It can be seen that the number, 125874, and its double, 251748, contain exactly the same digits, but in a different order.&lt;/p&gt;
+
+&lt;p&gt;Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;chk=True
+while chk:
+    for num in range(100,10**6):
+        coun=0
+        for i in range(2,7):
+            val=i*num
+            num_str = sorted(list(str(num)))
+            val_str = sorted(list(str(val)))
+
+            if num_str == val_str:
+                coun+=1
+        if coun == 5:
+            print(num)
+            chk=False
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;142857
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Consecutive prime sum</title>
